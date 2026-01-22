@@ -36,8 +36,7 @@ main h2 {
 /* Add additional rules for product cards below */
 .card:hover{
   cursor:pointer;
-  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2) ;
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card img {
@@ -78,8 +77,8 @@ main h2 {
   align-items: center;
   border-radius: 1em;
   height: 2em;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
   font-size: 0.8em;
   font-weight: bold;
   background-color: azure;
