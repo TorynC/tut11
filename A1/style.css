@@ -78,7 +78,7 @@ main {
     flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: #BBBBBB;
+    
 }
 
 body {
@@ -87,6 +87,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #BBBBBB;
 }
 
 input[type="email"] {
@@ -100,8 +101,10 @@ p, h1, h2, h3, h4, h5, h6, li, label, a {
 
 
 
-img {
+img.profile-pic {
     border-radius: 100px;
+    width: 200px;
+    height: 200px;
 }
 
 .profile-container {
