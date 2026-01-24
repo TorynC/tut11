@@ -7,3 +7,107 @@
  * Winter 2026
  *
  */
+
+header {
+   width: 100%;
+   display: flex;
+   justify-content: left;
+   background-color: #333333;
+   padding-top: 25px;
+   padding-bottom: 25px;
+   
+}
+
+header a.active{
+    color: #b2f5ea;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header a{
+    color: #00b8d4;
+    margin-right: 2rem;
+    text-decoration: none;
+}
+
+header a:hover{
+    color: white;
+}
+
+button {
+    color:#007EA8;
+    background-color: #FFFFFF;
+    width: 121px;
+    height:35px;
+    font-weight: bold;
+    border-color: #007EA8;
+    border-width: 2px; 
+    border-style: solid;
+    border-radius: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+button:hover {
+    background-color: #007EA8;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+footer {
+    display:flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #333333;
+    
+}
+main {
+    padding-top: 128px;
+    padding-bottom: 128px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: #BBBBBB;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="email"] {
+    font-family: 'Times New Roman', serif;
+}
+
+p, h1, h2, h3, h4, h5, h6, li, label, a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+
+
+img {
+    border-radius: 100px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
