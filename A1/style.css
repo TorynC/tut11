@@ -15,7 +15,6 @@ header {
    background-color: #333333;
    padding-top: 25px;
    padding-bottom: 25px;
-   
 }
 
 header a.active{
@@ -37,7 +36,11 @@ header a:hover{
     color: white;
 }
 
-button {
+header a:first-child {
+    margin-left:16px;
+}
+
+a.button {
     color:#007EA8;
     background-color: #FFFFFF;
     width: 126px;
@@ -57,9 +60,11 @@ button {
     padding-right: 16px;
     box-sizing: border-box;
     white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
 }
 
-button:hover {
+a.button:hover {
     background-color: #007EA8;
     color: #FFFFFF;
     border-color: #FFFFFF;
@@ -134,10 +139,12 @@ summary {
 .main-container h1 {
     color: #333333;
     font-size: 48px;
+    margin-top: 0;
     margin-bottom: 16px;
 }
 
 .main-container p {
+    margin-top:0;
     font-size: 24px;
 }
 
