@@ -44,6 +44,10 @@ class Timer {
 
     /* TODO: Add other helper methods as you see fit. */
     start() {
+        if (this.intervalId) {
+            clearInterval(this.intervalId);
+        }
+
         this.intervalId = setInterval(() => {
             if (this.minutes === 0 && this.seconds === 0) {
                 this.expired = true;
@@ -70,7 +74,7 @@ class Timer {
     }
     end () {
         clearInterval(this.intervalId);
-
+        update_stats();
     }
 }
 
@@ -92,9 +96,29 @@ function update_stats() {
      * TODO (Part 2): Complete these stats calculations.
      * Hint: use Array.reduce on the `timers` global array.
      */
-    let num_expired = 0;
-    let num_active = 0;
-    let avg_seconds = 0;
+    let num_expired = timers.reduce((total, timer) => {
+        if (timer.expired === true) {
+            total += 1;
+        }
+        return total;
+    }, 0);
+    let num_active = timers.reduce((total, timer) => {
+        if (timer.expired === false) {
+            total += 1;
+        }
+        return total;
+    }, 0);
+    let avg_seconds = timers.reduce((count, timer) => {
+        count += timer.minutes * 60 + timer.seconds;
+        
+        return count ;
+    }, 0);
+    if (timers.length > 0) {
+        avg_seconds = avg_seconds / timers.length;
+    }
+    else {
+        avg_seconds = 0;
+    }
 
     num_active_timers.innerHTML = num_active;
     num_expired_timers.innerHTML = num_expired;
@@ -188,7 +212,19 @@ function extend_all_timers(event, form) {
      * TODO (Part 3): Extend all timers by `seconds`.
      * Hint: use Array.forEach on the `timers` global array.
      */
-
+    timers.forEach((timer) => {
+        timer.seconds += seconds;
+        while (timer.seconds >= 60) {
+            timer.seconds = timer.seconds - 60;
+            timer.minutes += 1;
+        }
+        if (timer.expired === true) {
+            timer.expired = false;
+            timer.start();
+        }
+        timer.update(timer.minutes, timer.seconds);
+    })
+    update_stats();
     return false;
 }
 
@@ -205,6 +241,10 @@ function clear_expired_timers(event) {
      * TODO (Part 4): Remove all expired timers.
      * Hint: use Array.filter to select expired timers.
      */
+    timers.filter((timer) => {
+        return timer.expired === true;
+    }).forEach((timer) => timer.remove());
+    update_stats();
 
     return false;
 }
