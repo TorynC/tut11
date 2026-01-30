@@ -29,15 +29,49 @@ class Timer {
         // These are stored so your methods can call them later.
         this.update = update;
         this.remove = remove;
+        this.minutes = minutes; 
+        this.seconds = seconds;
+        this.expired = false; 
 
         /**
          * TODO (Part 1): Complete the constructor and start a periodic 
          * callback using setInterval to update the timer once every 1 second,
          * until it reaches 00:00.
          */
+        this.start();
+        
     }
 
     /* TODO: Add other helper methods as you see fit. */
+    start() {
+        this.intervalId = setInterval(() => {
+            if (this.minutes === 0 && this.seconds === 0) {
+                this.expired = true;
+                this.end();
+                return;
+            } 
+
+            this.seconds -= 1;
+            
+            if (this.seconds < 0) {
+                if (this.minutes > 0) {
+                    this.minutes -= 1;
+                    this.seconds = 59;
+                } else { 
+                    this.expired = true; 
+                    this.end();
+                    return;
+                }
+            }
+            this.update(this.minutes, this.seconds);
+            update_stats();
+            
+        }, 1000)
+    }
+    end () {
+        clearInterval(this.intervalId);
+
+    }
 }
 
 /**
