@@ -188,7 +188,7 @@ embed {
     border-width: 1px;
     border-color: #DDDDDD;
     border-radius: 3px;
-    width: 100%;
+    width: 820px;
     box-sizing: border-box;
 }
 
@@ -198,7 +198,7 @@ embed {
     border-width: 1px;
     border-color: #DDDDDD;
     border-radius: 3px;
-    width: 100%;
+    width: 820px;
     box-sizing: border-box;
 }
 
@@ -208,7 +208,7 @@ embed {
     border-color: #DDDDDD;
     border-radius: 3px;
     padding: 0.8rem;
-    width: 100%;
+    width: 820px;
     box-sizing: border-box;
 }
 
@@ -217,7 +217,8 @@ embed {
     margin-right:8px;
 }
 
-form.form-example {
+form.main-form {
+    margin-top: 24px;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 16px;
@@ -228,14 +229,14 @@ form.form-example {
     padding-right: 0.5rem;
 }
 
-div.form-example {
+div.main-form {
     display: contents;
 }
 
 form label {
     text-align: right;
-    padding-right: 16px;
     padding-top: 0.8rem;
+    margin-right: 16px;
     font-weight: 700;
     font-style: bold;
     font-size: 16px;
@@ -245,5 +246,6 @@ form label {
 #consent-label {
     text-align: left;
     justify-content: left;
+    margin-bottom: 32px;
 }
 
