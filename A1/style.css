@@ -163,10 +163,13 @@ details ul {
     padding-left: 0;
     color: #333333;
     font-size: 20px;
-    padding: 16px;
+    margin-top: 16px;
+    margin-bottom: 0;
+    padding: 0;
 }
 
 p.guideline {
+    margin-top: 24px;
     padding: 0.5rem;
     font-size: 16px;
     color: #333333;
