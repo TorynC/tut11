@@ -203,3 +203,15 @@ form{
     
 }
 
+#attachments {
+    border: solid;
+    border-width: 1px;
+    border-color: #DDDDDD;
+    border-radius: 3px;
+    padding: 0.8rem;
+}
+
+#consent {
+    transform: scale(1.5);
+    margin-right:8px;
+}
