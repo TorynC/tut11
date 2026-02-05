@@ -43,7 +43,6 @@ header a:first-child {
 a.button, button {
     color:#007EA8;
     background-color: #FFFFFF;
-    width: 126px;
     height: 35px;
     font-family: Inter, sans-serif;
     font-weight: 700;
@@ -192,6 +191,8 @@ form{
     border-width: 1px;
     border-color: #DDDDDD;
     border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #feedback {
@@ -200,7 +201,8 @@ form{
     border-width: 1px;
     border-color: #DDDDDD;
     border-radius: 3px;
-    
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #attachments {
@@ -209,9 +211,34 @@ form{
     border-color: #DDDDDD;
     border-radius: 3px;
     padding: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 #consent {
     transform: scale(1.5);
     margin-right:8px;
 }
+
+form.form-example {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+    width: 960px;
+}
+
+div.form-example {
+    display: contents;
+}
+
+form label {
+    text-align: right;
+    padding-right: 16px;
+    padding-top: 0.8rem;
+    font-weight: 700;
+    font-style: bold;
+    font-size: 16px;
+    color: #333333;
+}
+
