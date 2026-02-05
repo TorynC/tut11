@@ -117,11 +117,12 @@ p, h1, h2, h3, h4, h5, h6, li, label, a {
     padding-right: 0.5rem;
 }
 
-p.email {
+a.email {
     font-size: 32px;
     font-weight: bold;
     font-family: 'Times New Roman';
     color: #0000EE;
+    text-decoration: none;
 }
 
 img.profile-pic {
@@ -178,4 +179,27 @@ embed {
     height: 60vh;
 }
 
+
+
+form{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+#email {
+    border: solid;
+    padding: 0.8rem;
+    border-width: 1px;
+    border-color: #DDDDDD;
+    border-radius: 3px;
+}
+
+#feedback {
+    border: solid;
+    padding: 0.8rem;
+    border-width: 1px;
+    border-color: #DDDDDD;
+    border-radius: 3px;
+    
+}
 
