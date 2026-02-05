@@ -139,7 +139,6 @@ img.profile-pic {
 }
 
 summary {
-    padding-bottom: 1rem;
     list-style: none;
     cursor: pointer;
     color: #333333;
@@ -164,6 +163,7 @@ details ul {
     padding-left: 0;
     color: #333333;
     font-size: 20px;
+    padding: 16px;
 }
 
 p.guideline {
