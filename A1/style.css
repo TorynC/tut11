@@ -214,7 +214,6 @@ embed {
 
 #consent {
     transform: scale(1.5);
-    margin-right:8px;
 }
 
 form.main-form {
@@ -247,6 +246,6 @@ form label {
 #consent-label {
     text-align: left;
     justify-content: left;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
 }
 
