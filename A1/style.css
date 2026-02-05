@@ -178,13 +178,6 @@ embed {
     height: 60vh;
 }
 
-
-
-form{
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
-
 #email {
     border: solid;
     padding: 0.8rem;
@@ -225,7 +218,10 @@ form.form-example {
     grid-template-columns: auto 1fr;
     gap: 16px;
     align-items: start;
-    width: 960px;
+    width: 768px;
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 div.form-example {
@@ -240,5 +236,10 @@ form label {
     font-style: bold;
     font-size: 16px;
     color: #333333;
+}
+
+#consent-label {
+    text-align: left;
+    justify-content: left;
 }
 
