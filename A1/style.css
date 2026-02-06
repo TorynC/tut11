@@ -304,8 +304,10 @@ input[type="checkbox"] {
     form label {
         text-align: left;
         padding-top: 0;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         margin-bottom: 8px;
     }
 
@@ -313,15 +315,19 @@ input[type="checkbox"] {
         text-align: left;
         padding-top: 0;
         padding-left: 0;
+        margin-left: 0;
+        margin-bottom: 16px;
     }
 
     #consent-label {
         padding-top: 0;
         padding-bottom: 0;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         display: block;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
     }
 
     div.main-form {
@@ -343,17 +349,20 @@ input[type="checkbox"] {
         max-width: 524.0px;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        margin-bottom: 16px;
     }
 
     #attachments { 
         max-width: 524.0px;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        margin-bottom: 16px;
     }
 
     #email {
         max-width: 524.0px;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        margin-bottom: 16px;
     }
 }
