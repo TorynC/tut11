@@ -302,13 +302,14 @@ input[type="checkbox"] {
     }
 
     form label {
+        display: block;
         text-align: left;
         padding-top: 0;
         padding-left: 0;
         padding-right: 0;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
-        margin-bottom: 0;
+        margin-bottom: 8px;
     }
 
     #email {
@@ -335,7 +336,7 @@ input[type="checkbox"] {
         padding-top: 0;
         padding-left: 0;
         margin-left: 0.5rem;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         display: block;
     }
 
@@ -347,7 +348,7 @@ input[type="checkbox"] {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
         display: block;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
     }
 
     div.main-form {
@@ -356,14 +357,14 @@ input[type="checkbox"] {
 
     #consent {
         display: block;
-        margin-bottom: 0;
-        margin-left: 0;
-        margin-right: 0;
-        vertical-align: middle;
+        margin: 0;
+    }
+
+    form.main-form > span {
+        display: none;
     }
 
     button[type="submit"] {
-        margin-top: 8px;
         margin-left: 0.5rem;
     }
 }
