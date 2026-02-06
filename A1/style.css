@@ -130,7 +130,7 @@ img.profile-pic {
     object-fit: cover;
     object-position: center;
     display: block;
-    border:solid;
+    border:none;
 }
 
 .main-container {
@@ -138,6 +138,22 @@ img.profile-pic {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+.form-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 960px;
+}
+
+.form-container h1 {
+    color: #333333;
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 summary {
@@ -190,7 +206,7 @@ embed {
     border-width: 1px;
     border-color: #DDDDDD;
     border-radius: 3px;
-    width: 820px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -200,7 +216,7 @@ embed {
     border-width: 1px;
     border-color: #DDDDDD;
     border-radius: 3px;
-    width: 820px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -210,12 +226,17 @@ embed {
     border-color: #DDDDDD;
     border-radius: 3px;
     padding: 0.8rem;
-    width: 820px;
+    width: 100%;
     box-sizing: border-box;
 }
 
 #consent {
     transform: scale(1.5);
+}
+
+.checkbox-column {
+    text-align: right;
+    padding-top: 0.8rem;
 }
 
 form.main-form {
@@ -224,7 +245,8 @@ form.main-form {
     grid-template-columns: auto 1fr;
     gap: 16px;
     align-items: start;
-    width: 768px;
+    max-width: 960px;
+    width: 100%;
     box-sizing: border-box;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -247,9 +269,15 @@ form label {
 
 #consent-label {
     text-align: left;
-    justify-content: left;
-    margin-bottom: 16px;
     padding-left: 0;
     padding-right: 0;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    font-weight: 400;
+}
+
+button[type="submit"] {
+    justify-self: start;
+    margin-top: 0;
 }
 
