@@ -308,6 +308,25 @@ input[type="checkbox"] {
         padding-right: 0;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        margin-bottom: 0;
+    }
+
+    #email {
+        max-width: 524.0px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 8px;
+    }
+    #feedback {
+        max-width: 524.0px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 8px;
+    }
+    #attachments { 
+        max-width: 524.0px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
         margin-bottom: 8px;
     }
 
@@ -317,6 +336,7 @@ input[type="checkbox"] {
         padding-left: 0;
         margin-left: 0.5rem;
         margin-bottom: 16px;
+        display: block;
     }
 
     #consent-label {
@@ -327,7 +347,7 @@ input[type="checkbox"] {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
         display: block;
-        margin-bottom: 24px;
+        margin-bottom: 32px;
     }
 
     div.main-form {
@@ -336,33 +356,14 @@ input[type="checkbox"] {
 
     #consent {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 0;
         margin-left: 0;
+        margin-right: 0;
+        vertical-align: middle;
     }
 
     button[type="submit"] {
         margin-top: 8px;
         margin-left: 0.5rem;
-    }
-
-    #feedback {
-        max-width: 524.0px;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        margin-bottom: 16px;
-    }
-
-    #attachments { 
-        max-width: 524.0px;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        margin-bottom: 16px;
-    }
-
-    #email {
-        max-width: 524.0px;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        margin-bottom: 16px;
     }
 }
