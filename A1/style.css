@@ -280,3 +280,80 @@ button[type="submit"] {
     justify-self: start;
 }
 
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.form-container2 {
+    width: 100%;
+}
+
+@media screen and (max-width:600px ){
+    .form-container2 {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    form.main-form {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    form label {
+        text-align: left;
+        padding-top: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-bottom: 8px;
+    }
+
+    .checkbox-column {
+        text-align: left;
+        padding-top: 0;
+        padding-left: 0;
+    }
+
+    #consent-label {
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    div.main-form {
+        display: block;
+    }
+
+    #consent {
+        display: block;
+        margin-bottom: 8px;
+        margin-left: 0.5rem;
+    }
+
+    button[type="submit"] {
+        margin-top: 8px;
+        margin-left: 0.5rem;
+    }
+
+    #feedback {
+        max-width: 524.0px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    #attachments { 
+        max-width: 524.0px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    #email {
+        max-width: 524.0px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}
