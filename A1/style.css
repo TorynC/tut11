@@ -126,6 +126,8 @@ img.profile-pic {
     width: 200px;
     height: 200px;
     margin-bottom: 32px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .main-container {
