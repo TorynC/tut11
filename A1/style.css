@@ -271,13 +271,12 @@ form label {
     text-align: left;
     padding-left: 0;
     padding-right: 0;
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+    padding-top: 16px;
+    padding-bottom: 16px;
     font-weight: 400;
 }
 
 button[type="submit"] {
     justify-self: start;
-    margin-top: 0;
 }
 
