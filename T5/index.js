@@ -102,7 +102,7 @@ app.patch("/notes/:noteId", (req, res) => {
 
     const doneParam = req.query.done;
 
-    if (doneParam !== undefined && doneParam !== "true" && doneParam !== "false") {
+    if (doneParam !== "true" && doneParam !== "false") {
         return res.status(400).send("Bad request");
     }
 
