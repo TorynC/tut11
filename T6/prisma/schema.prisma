@@ -19,7 +19,7 @@ model Note {
     title String
     description String
     completed Boolean
-    isPublic Boolean
+    public Boolean
     userId Int
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

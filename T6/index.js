@@ -55,10 +55,10 @@ app.get("/notes", async (req, res) => {
     const doneParam = req.query.done;
 
     if (doneParam !== undefined && doneParam !== "true" && doneParam !== "false") {
-        return res.status(400).send("Bad request");
+        return res.status(400).json({ message: 'Invalid payload' });
     }
 
-    const filter = {isPublic: true};
+    const filter = {public: true};
 
     if (doneParam === "true") {
         filter.completed = true;
@@ -77,7 +77,7 @@ app.get("/notes", async (req, res) => {
 app.get("/notes/:noteId", basicAuth, async(req, res) => {
 
     if (!req.user) {
-        return res.status(401).json({message: "Unauthenticated"});
+        return res.status(401).json({message: "Not authenticated"});
     }
 
     const noteId = parseInt(req.params.noteId, 10);
@@ -91,7 +91,7 @@ app.get("/notes/:noteId", basicAuth, async(req, res) => {
     });
 
     if (!note) {
-        return res.status(404).json({message: 'not found'});
+        return res.status(404).json({message: 'Not found'});
     }
 
     if (note.userId !== req.user.id) {
@@ -102,7 +102,7 @@ app.get("/notes/:noteId", basicAuth, async(req, res) => {
 
 app.post("/notes", basicAuth, async (req, res) => {
     if (!req.user) {
-        return res.status(401).json({message: "Not Authenticated"});
+        return res.status(401).json({message: "Not authenticated"});
     }
 
     const {title, description, completed, public: isPublic} = req.body;
@@ -125,7 +125,7 @@ app.post("/notes", basicAuth, async (req, res) => {
             title, 
             description,
             completed,
-            isPublic,
+            public: isPublic,
             userId: req.user.id
         }
     });
@@ -186,7 +186,7 @@ app.patch("/notes/:noteId", basicAuth, async (req, res) => {
         if (typeof isPublic !== 'boolean') {
             return res.status(400).json({ message: 'Invalid payload' });
         }
-        updateData.isPublic = isPublic;
+        updateData.public = isPublic;
     }
 
     const updatedNote = await prisma.note.update({
@@ -200,7 +200,7 @@ app.patch("/notes/:noteId", basicAuth, async (req, res) => {
 app.post('/users', async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password || username.trim() === '' || password.trim() === '' ) {
-        return res.status(400).json({message: "Invalid Payload"});
+        return res.status(400).json({message: "Invalid payload"});
     }
 
     const existingUser = await prisma.user.findUnique({
@@ -209,7 +209,7 @@ app.post('/users', async (req, res) => {
 
     if (existingUser) {
         return res.status(409).json({
-            message: 'Username already exists'
+            message: 'A user with that username already exists'
         });
     }
 
