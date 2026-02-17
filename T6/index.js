@@ -189,6 +189,11 @@ app.patch("/notes/:noteId", basicAuth, async (req, res) => {
         updateData.public = isPublic;
     }
 
+    // Check if at least one field was provided
+    if (Object.keys(updateData).length === 0) {
+        return res.status(400).json({ message: 'Invalid payload' });
+    }
+
     const updatedNote = await prisma.note.update({
         where: { id: noteId },
         data: updateData
