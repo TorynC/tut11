@@ -4,7 +4,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 describe("UserService", () => {
-    const testUsername = "svc_test_user_" + Date.now();
+    const testUsername = "testUser" + Date.now();
 
     afterAll(async () => {
         await prisma.user.deleteMany({ where: { username: { startsWith: "svc_test_user_" } } });

@@ -4,8 +4,8 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-const TEST_USERNAME = "notes_route_testuser_" + Date.now();
-const TEST_PASSWORD = "testpass123";
+const TEST_USERNAME = "testuser1" + Date.now();
+const TEST_PASSWORD = "password123";
 
 function basicAuthHeader(username, password) {
     return "Basic " + Buffer.from(`${username}:${password}`).toString("base64");
@@ -41,8 +41,9 @@ describe("GET /notes", () => {
         await request(app)
             .get("/notes")
             .then((response) => {
-                expect(response.statusCode).toBe(200);
                 expect(Array.isArray(response.body)).toBe(true);
+                expect(response.statusCode).toBe(200);
+                
                 const found = response.body.find((n) => n.id === testNote.id);
                 expect(found).toBeDefined();
                 expect(found.public).toBe(true);
@@ -57,7 +58,7 @@ describe("POST /notes", () => {
             .set("Authorization", basicAuthHeader(TEST_USERNAME, TEST_PASSWORD))
             .send({
                 title: "New Note",
-                description: "Created in test",
+                description: "test",
                 completed: false,
                 public: true,
             })
@@ -65,7 +66,7 @@ describe("POST /notes", () => {
                 expect(response.statusCode).toBe(201);
                 expect(response.body).toMatchObject({
                     title: "New Note",
-                    description: "Created in test",
+                    description: "test",
                     completed: false,
                     public: true,
                     userId: testUser.id,
@@ -135,7 +136,7 @@ describe("PATCH /notes/:noteId", () => {
         const otherNote = await prisma.note.create({
             data: {
                 title: "Other Note",
-                description: "Belongs to other",
+                description: "other",
                 completed: false,
                 public: false,
                 userId: otherUser.id,

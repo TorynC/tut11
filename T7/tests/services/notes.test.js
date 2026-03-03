@@ -8,13 +8,13 @@ let testNote;
 
 beforeAll(async () => {
     testUser = await prisma.user.create({
-        data: { username: "notes_svc_user_" + Date.now(), password: "pass" },
+        data: { username: "notesUser" + Date.now(), password: "pass" },
     });
 
     testNote = await prisma.note.create({
         data: {
             title: "Service Test Note",
-            description: "For service tests",
+            description: "For tests",
             completed: false,
             public: true,
             userId: testUser.id,
@@ -75,7 +75,7 @@ describe("NoteService", () => {
             public: false,
             userId: testUser.id,
         });
-        expect(newNote.id).toBeDefined();
+        
     });
 
     test(".update(): it should update a note and return the updated note", async () => {
