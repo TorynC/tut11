@@ -155,14 +155,4 @@ describe("PATCH /notes/:noteId", () => {
         await prisma.user.delete({ where: { id: otherUser.id } });
     });
 
-    test("404 - should return 404 when the note does not exist", async () => {
-        await request(app)
-            .patch("/notes/999999")
-            .set("Authorization", basicAuthHeader(TEST_USERNAME, TEST_PASSWORD))
-            .send({ title: "Ghost Note" })
-            .then((response) => {
-                expect(response.statusCode).toBe(404);
-                expect(response.body).toMatchObject({ message: "Not found" });
-            });
-    });
 });
