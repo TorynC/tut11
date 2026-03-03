@@ -37,7 +37,7 @@ afterAll(async () => {
 });
 
 describe("GET /notes", () => {
-    test("It should respond with an array of public notes", async () => {
+    test("Should respond with an array of public notes", async () => {
         await request(app)
             .get("/notes")
             .then((response) => {
@@ -52,7 +52,7 @@ describe("GET /notes", () => {
 });
 
 describe("POST /notes", () => {
-    test("It should create a note and respond with 201", async () => {
+    test("Should create a note and respond with 201", async () => {
         await request(app)
             .post("/notes")
             .set("Authorization", basicAuthHeader(TEST_USERNAME, TEST_PASSWORD))
@@ -93,7 +93,7 @@ describe("GET /notes/:noteId", () => {
 });
 
 describe("PATCH /notes/:noteId", () => {
-    test("It should update the note and respond with the updated note", async () => {
+    test("Should update the note and respond with the updated note", async () => {
         await request(app)
             .patch(`/notes/${testNote.id}`)
             .set("Authorization", basicAuthHeader(TEST_USERNAME, TEST_PASSWORD))
@@ -108,7 +108,7 @@ describe("PATCH /notes/:noteId", () => {
             });
     });
 
-    test("400 - should return 400 when the request body has no valid fields", async () => {
+    test("400 should be returned when the request body has no valid fields", async () => {
         await request(app)
             .patch(`/notes/${testNote.id}`)
             .set("Authorization", basicAuthHeader(TEST_USERNAME, TEST_PASSWORD))
@@ -119,7 +119,7 @@ describe("PATCH /notes/:noteId", () => {
             });
     });
 
-    test("401 - should return 401 when invalid credentials are provided", async () => {
+    test("401 should be returned when invalid credentials are provided", async () => {
         await request(app)
             .patch(`/notes/${testNote.id}`)
             .set("Authorization", basicAuthHeader(TEST_USERNAME, "wrongpassword"))
@@ -129,9 +129,9 @@ describe("PATCH /notes/:noteId", () => {
             });
     });
 
-    test("403 - should return 404 when the note belongs to a different user", async () => {
+    test("403 should be returned when the note belongs to a different user", async () => {
         const otherUser = await prisma.user.create({
-            data: { username: "other_user_" + Date.now(), password: "pass" },
+            data: { username: "otherUser" + Date.now(), password: "pass" },
         });
         const otherNote = await prisma.note.create({
             data: {

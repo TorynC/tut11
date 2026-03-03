@@ -7,7 +7,7 @@ describe("UserService", () => {
     const testUsername = "testUser" + Date.now();
 
     afterAll(async () => {
-        await prisma.user.deleteMany({ where: { username: { startsWith: "svc_test_user_" } } });
+        await prisma.user.deleteMany({ where: { username: { startsWith: "testUser" } } });
         await prisma.$disconnect();
     });
 

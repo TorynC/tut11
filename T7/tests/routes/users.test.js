@@ -8,7 +8,7 @@ describe("POST /users", () => {
     const testUsername = "testuser1" + Date.now();
 
     afterAll(async () => {
-        await prisma.user.deleteMany({ where: { username: { startsWith: "route_test_user_" } } });
+        await prisma.user.deleteMany({ where: { username: { startsWith: "routeTestUser" } } });
         await prisma.$disconnect();
     });
 
