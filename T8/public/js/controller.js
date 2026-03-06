@@ -18,6 +18,7 @@ function fetchParagraphs() {
         }
     ).then(res => res.json())
     .then(response => {
+        if (nextparagraph === 1) document.getElementById('data').innerHTML = '';
         for (let i = 0; i < response.data.length; i++) {
             const paragraph = response.data[i];
             const div = document.createElement('div');
@@ -52,15 +53,11 @@ function fetchParagraphs() {
         nextparagraph += 5;
         if (response.next === false) {
             hasmore = false;
-            const div = document.createElement('div');
-            
-            const p = document.createElement('p');        
+            const p = document.createElement('p');
             const b = document.createElement('b');
-            b.textContent = "You have reached the end"
-            
+            b.textContent = "You have reached the end";
             p.appendChild(b);
-            div.appendChild(p);
-            document.getElementById('data').appendChild(div);
+            document.getElementById('data').appendChild(p);
         }
     });
 }
