@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext(null);
 
-// TODO: get the BACKEND_URL.
+const VITE_BACKEND_URL = "http://localhost:3000";
 
 /*
  * This provider should export a `user` context state that is 
@@ -16,10 +16,19 @@ const AuthContext = createContext(null);
  */
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
-    // const user = null; // TODO: Modify me.
+    const [user, setUser] = useState(null);
 
-    useEffect({
-        // TODO: complete me, by retriving token from localStorage and make an api call to GET /user/me.
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            fetch(`${VITE_BACKEND_URL}/user/me`, {
+                headers: {Authorization: `Bearer ${token}`}
+            })
+            .then(res => res.json())
+            .then(data => setUser(data.user));
+        } else {
+            setUser(null);
+        }
     }, [])
 
     /*
@@ -28,8 +37,7 @@ export const AuthProvider = ({ children }) => {
      * @remarks This function will always navigate to "/".
      */
     const logout = () => {
-        // TODO: complete me
-
+        
         navigate("/");
     };
 
@@ -42,8 +50,21 @@ export const AuthProvider = ({ children }) => {
      * @returns {string} - Upon failure, Returns an error message.
      */
     const login = async (username, password) => {
-        // TODO: complete me
-        return "TODO: complete me";
+        const res = await fetch(`${VITE_BACKEND_URL}/login`, {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({username, password})
+        })
+
+        if (!res.ok) {
+            return data.message;
+        }
+        else {
+            localStorage.setItem('token', data.token);
+            setUser(data.user);
+            navigate('/profile')
+        }
+
     };
 
     /**
