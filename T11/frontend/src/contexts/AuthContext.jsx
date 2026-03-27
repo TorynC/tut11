@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext(null);
 
-const VITE_BACKEND_URL = "http://localhost:3000";
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 
 /*
  * This provider should export a `user` context state that is 
@@ -37,7 +37,8 @@ export const AuthProvider = ({ children }) => {
      * @remarks This function will always navigate to "/".
      */
     const logout = () => {
-        
+        localStorage.removeItem('token');
+        setUser(null);
         navigate("/");
     };
 
@@ -55,15 +56,18 @@ export const AuthProvider = ({ children }) => {
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify({username, password})
         })
+        const data = await res.json();
 
         if (!res.ok) {
             return data.message;
         }
-        else {
-            localStorage.setItem('token', data.token);
-            setUser(data.user);
-            navigate('/profile')
-        }
+        localStorage.setItem('token', data.token);
+        const resUser = await fetch(`${VITE_BACKEND_URL}/user/me`, {
+            headers: { Authorization: `Bearer ${data.token}` }
+        });
+        const userData = await resUser.json();
+        setUser(userData.user);
+        navigate('/profile');
 
     };
 
@@ -75,8 +79,21 @@ export const AuthProvider = ({ children }) => {
      * @returns {string} - Upon failure, returns an error message.
      */
     const register = async (userData) => {
-        // TODO: complete me
-        return "TODO: complete me";
+        const { username, firstname, lastname, password } = userData;
+        const res = await fetch(`${VITE_BACKEND_URL}/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, firstname, lastname, password })
+        })
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            return data.message;
+        }
+        else {
+            navigate('/success');
+        }
     };
 
     return (
